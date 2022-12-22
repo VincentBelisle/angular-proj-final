@@ -1,0 +1,14 @@
+<mat-accordion multi>
+    <mat-expansion-panel *ngFor="let vehicule of vehicules">
+        <mat-expansion-panel-header>
+        <mat-panel-title>
+            {{vehicule.fabricant}} {{vehicule.modele}}
+        </mat-panel-title>
+        </mat-expansion-panel-header>
+        <p i18n>Date de sortie: {{vehicule.date_sortie | date:'yyyy-MM-dd'}}</p>
+        <p i18n>Nombre de chevaux: {{vehicule.chevaux}}</p>
+        <p i18n>Entrainement: {{vehicule.entrainement}}</p>
+        <p i18n>Poids: {{vehicule.poids}} livres</p>
+
+    </mat-expansion-panel>
+</mat-accordion>

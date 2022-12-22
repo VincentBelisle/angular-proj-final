@@ -1,0 +1,70 @@
+
+<h2 *ngIf="!showForm"i18n>Veuillez vous connecter</h2>
+
+
+<form *ngIf="showForm" #vehicleForm="ngForm" (ngSubmit)="ajoutVehicule()">
+    <mat-form-field>
+        <mat-label i18n>Modèle</mat-label>
+        <input matInput [(ngModel)]="newVehicle.modele" name="modele" required>
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label i18n>Poids</mat-label>
+        <input matInput [(ngModel)]="newVehicle.poids" name="poids" type="number" required>
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label i18n>Type de véhicule</mat-label>
+        <mat-select [(ngModel)]="newVehicle.type_vehicule" name="type_vehicule" required>
+            <mat-option *ngFor="let type of types" [value]="type">{{type}}</mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label i18n>Date de sortie</mat-label>
+        <input matInput [matDatepicker]="picker" [(ngModel)]="newVehicle.date_sortie" name="date_sortie" required>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+      
+    <mat-form-field>
+        <mat-label i18n>Fabricant</mat-label>
+        <input matInput [(ngModel)]="newVehicle.fabricant" name="fabricant" required>
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label i18n>Entraînement</mat-label>
+        <mat-select [(ngModel)]="newVehicle.entrainement" name="entrainement" required>
+            <mat-option *ngFor="let drive of drives" [value]="drive">{{drive}}</mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label i18n>Nombre de chevaux</mat-label>
+        <input matInput [(ngModel)]="newVehicle.chevaux" name="chevaux" type="number" required>
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label i18n>Consommation moyenne</mat-label>
+        <input matInput [(ngModel)]="newVehicle.consommation_moyenne" name="consommation_moyenne" type="number"
+            required>
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label i18n>Nombre de cylindres</mat-label>
+        <input matInput [(ngModel)]="newVehicle.nombre_cylindres" name="nombre_cylindres" type="number" required>
+    </mat-form-field>
+
+
+    <mat-form-field>
+        <mat-label i18n>Transmission disponible</mat-label>
+        <mat-select [(ngModel)]="newVehicle.transmission_disponible" name="transmission_disponible" multiple required>
+            <mat-option *ngFor="let transmission of transmissions" [value]="transmission">{{transmission}}</mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-label i18n>Discontinue</mat-label>
+        <mat-checkbox [(ngModel)]="newVehicle.discontinue" name="discontinue"></mat-checkbox>
+
+    <button mat-raised-button type="submit" [disabled]="!vehicleForm.valid" i18n>Ajouter</button>
+</form>

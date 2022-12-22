@@ -1,0 +1,47 @@
+<br>
+
+<h3 i18n>Veuillez rechercher selon un filtre</h3>
+
+<mat-form-field>
+    <mat-label i18n>Type de véhicule</mat-label>
+    <mat-select [(value)]="typeSelected" (valueChange)='getVehiculesParType(typeSelected)'>
+        <mat-option *ngFor="let type of types" [value]="type">
+            {{type}}
+        </mat-option>
+    </mat-select>
+</mat-form-field>
+
+<mat-form-field>
+    <mat-label i18n>Entrainement</mat-label>
+    <mat-select [(value)]="entrainementSelected" (valueChange)='getVehiculesParEntrainement(entrainementSelected)'>
+        <mat-option *ngFor="let entrainement of entrainements" [value]="entrainement">
+            {{entrainement}}
+        </mat-option>
+    </mat-select>
+</mat-form-field>
+
+<mat-form-field>
+    <mat-label i18n>Fabricant</mat-label>
+    <input matInput [(ngModel)]="fabricant" name="fabricant" (ngModelChange)="getVehiculesParFabricant(fabricant)">
+</mat-form-field>
+
+
+
+<br>
+
+<mat-accordion>
+    <mat-expansion-panel *ngFor="let vehicule of vehicules">
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                {{vehicule.fabricant}} {{vehicule.modele}}
+            </mat-panel-title>
+        </mat-expansion-panel-header>
+        <p i18n>Date de sortie: {{vehicule.date_sortie | date}}</p>
+        <p i18n>Nombre de chevaux: {{vehicule.chevaux}}</p>
+        <p i18n>Entrainement: {{vehicule.entrainement}}</p>
+        <p i18n>Poids: {{vehicule.poids}} livres</p>
+        <mat-icon *ngIf="token" color="warn" (click)="deleteVehicle(vehicule._id)">delete</mat-icon>
+
+
+    </mat-expansion-panel>
+</mat-accordion>

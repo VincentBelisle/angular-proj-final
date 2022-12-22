@@ -1,0 +1,20 @@
+<table matSort (matSortChange)="sortData($event)">
+  <tr>
+    <th mat-sort-header="_id" i18n>Type de véhicule</th>
+    <th mat-sort-header="consommation_moyenne" i18n>Consommation moyenne</th>
+    <th mat-sort-header="nombre_vehicules" i18n>Nombre de véhicules</th>
+
+  </tr>
+
+
+  <tr *ngFor="let statistique of statistiques">
+    <td>{{statistique._id}}</td>
+    <td>{{statistique.consommation_moyenne}}</td>
+    <td>{{statistique.nombre_vehicules}}</td>
+
+  </tr>
+
+
+
+
+</table>
