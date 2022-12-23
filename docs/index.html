@@ -7,10 +7,10 @@
 
       // Si la valeur de l'en-tête Accept-Language est fr-FR, redirection vers la version française de votre site
       if (httpAcceptLanguage == 'fr-CA') {
-        window.href = "./fr-CA";
+        window.location.replace("./fr-CA");
       }
       else {
-        window.href = "./en-US";
+        window.location.replace("./en-US");
       }
     </script>
     
