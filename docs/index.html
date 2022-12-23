@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script>
+      // Récupération de la valeur de l'en-tête Accept-Language du navigateur du client
+      var httpAcceptLanguage = navigator.language || navigator.userLanguage;
+
+      // Si la valeur de l'en-tête Accept-Language est fr-FR, redirection vers la version française de votre site
+      if (httpAcceptLanguage == 'fr-CA') {
+        window.href = "./fr-CA";
+      }
+      else {
+        window.href = "./en-US";
+      }
+
+    
+
+    </script>
+    <meta http-equiv="refresh" content="0; URL=<script>document.write(redirectUrl)</script>">
+  </head>
+  <body>
+    Redirection vers la version de votre site dans la langue préférée du client...
+  </body>
+</html>
