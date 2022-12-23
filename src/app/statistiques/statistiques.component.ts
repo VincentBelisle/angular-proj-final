@@ -67,6 +67,13 @@ export class StatistiquesComponent implements OnInit {
 
   }
 
+  rafraichirStatistiques(): void {
+    this.getConsommationMoyenne();
+    this.getNombreVehicules();
+  }
+
+
+
   sortData(sort: Sort) {
 
 

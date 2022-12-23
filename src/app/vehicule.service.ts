@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, tap } from 'rxjs';
 import { Vehicule } from './vehicule';
+import {Statistique} from './statistique';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from './../environments/environment';
 
@@ -14,6 +15,8 @@ export class VehiculeService {
   vehiculesUrl = environment.apiUrl + '/vehicules';
 
   vehicles$: BehaviorSubject<Vehicule[]> = new BehaviorSubject<Vehicule[]>([]);
+
+  statistics$: BehaviorSubject<Statistique[]> = new BehaviorSubject<Statistique[]>([]);
 
 
   constructor(private http: HttpClient) { }
@@ -47,7 +50,7 @@ export class VehiculeService {
         // Ajoute le véhicule à la liste des véhicules
         const vehicles = this.vehicles$.value;
         vehicles.push(vehicule);
-        this.vehicles$.next(vehicles);
+        this.vehicles$.next(vehicles);        
       })
     );
 

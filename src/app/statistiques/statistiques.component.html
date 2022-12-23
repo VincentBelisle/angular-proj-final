@@ -4,7 +4,13 @@
     <th mat-sort-header="consommation_moyenne" i18n>Consommation moyenne</th>
     <th mat-sort-header="nombre_vehicules" i18n>Nombre de véhicules</th>
 
+    <button mat-icon-button color="primary" (click)="rafraichirStatistiques()">
+      <mat-icon>refresh</mat-icon>
+    </button>
+
   </tr>
+
+  
 
 
   <tr *ngFor="let statistique of statistiques">
